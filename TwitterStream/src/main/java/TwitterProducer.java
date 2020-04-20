@@ -29,7 +29,7 @@ public class TwitterProducer {
     String token = "873922891334664192-Tfq64dslf1rit3b11TtJBAY4lumDKUA";
     String secret = "WHxUh50ogt0CeFa4Ycjwa28b3iHkFPffnQsIEWdocmJC1";
 
-    List<String> terms = Lists.newArrayList("OnePlus8Pro");
+    List<String> terms = Lists.newArrayList("#OilCrash");
 
 
     public TwitterProducer() {
@@ -76,7 +76,7 @@ public class TwitterProducer {
             }
             if (msg != null) {
                 logger.info(msg);
-                producer.send(new ProducerRecord<>("twittertopic", null, msg), new Callback() {
+                producer.send(new ProducerRecord<>("twitter_tweets", null, msg), new Callback() {
                     @Override
                     public void onCompletion(RecordMetadata recordMetadata, Exception e) {
                         if (e != null) {
