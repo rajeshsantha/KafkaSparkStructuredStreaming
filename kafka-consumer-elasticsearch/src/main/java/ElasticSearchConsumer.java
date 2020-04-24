@@ -100,7 +100,7 @@ public class ElasticSearchConsumer {
         Logger logger = LoggerFactory.getLogger(ElasticSearchConsumer.class.getName());
         RestHighLevelClient client = createClient();
 
-        KafkaConsumer<String, String> consumer = createConsumer("twitter_tweets");
+        KafkaConsumer<String, String> consumer = createConsumer("important_tweets");
 
         while (true) {
             ConsumerRecords<String, String> records =

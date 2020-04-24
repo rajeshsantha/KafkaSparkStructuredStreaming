@@ -1,5 +1,7 @@
     bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 3 --topic twitter_tweets
 
+    bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 3 --topic twitter_status_connect
+    bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 3 --topic twitter_deletes_connect
     
 start-zookeeper:
 
@@ -27,4 +29,7 @@ producer-console:
 consumer-console:
 
     bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic twitter_tweets --from-beginning   
-
+    bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic twitter_status_connect --from-beginning
+#to run kafka connect for twitter
+cd /home/rajesh/IdeaProjects/KafkaSparkStructuredStreaming/kafka-connect
+connect-standalone.sh  connect-standalone.properties twitter.properties
